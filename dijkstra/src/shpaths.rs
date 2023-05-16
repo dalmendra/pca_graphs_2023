@@ -66,7 +66,6 @@ impl Graph {
             id: start,
             distance: 0,
         });
-        // Debug para a apresentação: mostra a lista inicial de distâncias no vetor
         println!("Distancias iniciais: {:?}", distances);
 
         // Loop principal do algoritmo Dijkstra. Roda enquanto houver vértices a serem visitados.
@@ -98,7 +97,7 @@ impl Graph {
                     });
                 }
             }
-            // Debug para a apresentação: mostra o vetor de distâncias após cada iteração do loop for
+            // Mostra o vetor de distâncias após cada iteração do loop for
             println!("Vetor distances após o loop: {:?}", distances);
         }
     
@@ -133,7 +132,7 @@ mod test_dijkstra {
         let distances = Graph::dijkstra(&graph, start_vertex);
 
         for (index, distance) in distances.iter().enumerate() {
-            if distance > &1000000 {
+            if distance == &u32::MAX {
                 println!("Distance from {} to {}: unreachable", start_vertex, index)
             }
             else {
